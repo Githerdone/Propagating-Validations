@@ -1,0 +1,8 @@
+<div>
+  <% @event.errors.each do |key, value| %>
+  <div id="error_tag">
+  <p><%= "#{key.capitalize}: "%></p>
+  <p style="color: red"><%= "#{value}" %></p>
+  <div>
+  <%end%>
+</div>

@@ -1,0 +1,10 @@
+  
+  <ul id="show_all">
+    <% @events.each do |event| %>
+    <div id="wrapper">
+      <p>Orgainizer: <%= event.name %> - Email: <%= event.email %></p>
+      <li><a href="/events/<%=event.id%>/show"><%=event.title%> - <%=event.date%></a></li>
+    </div>
+    <% end %>
+  </ul>
+

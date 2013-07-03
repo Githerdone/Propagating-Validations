@@ -1,0 +1,27 @@
+
+<form id="input" method="post" action="/events/create">
+  Name: <input style="text" name="input[name]" value=
+    <% if !@event.nil? %>
+    <%= @event.name %>
+    <%end%>>
+  Email: <input style="text" name="input[email]" value=
+   <% if !@event.nil? %>
+   <%= @event.email %>
+   <%end%>>
+  Title: <input style="text" name="input[title]" value=
+  <% if !@event.nil? %>
+   <%= @event.title %>
+   <%end%>>
+  Date: <input style="text" name="input[date]" value=
+  <% if !@event.nil? %>
+   <%= @event.date %>
+   <% else %>
+   <%= DateTime.now.to_date %>
+   <%end%>>
+  <input type="submit" value="Create Event">
+</form>
+<% if !@event.nil? %>
+<% if !@event.errors.nil? %>
+<%= erb :_errors, :layout => false %>
+<%end%>
+<%end%>
