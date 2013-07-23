@@ -13,13 +13,16 @@ get '/events/new' do
 end
 
 post '/events/create' do
+  p params
   params[:input][:date] = params[:input][:date].to_date
   @event = Event.create(params[:input])
   if @event.errors.empty?
     erb :event_show
   else @event.errors
-    @errors = @event.errors
-    erb :event_new
+    content_type :json
+    { date: @event.errors}.to_json
+    # @errors = @event.errors
+    # erb :event_new
   end
 end
 
